@@ -32,12 +32,14 @@ Start Content
 ================================= -->
 {% block content %}
 <section>
+  
   <div class="innerPageBannerCol">
     <div class="container">
       <div class="row g-4 g-md-3  align-items-center">
         <div class="col-md-6">
           <div class="bannerContent">
             <h1 class="xlTitle pb-md-3">{{object.name|title}}</h1>
+            <img src="{{object.image.url}}" alt="..." class="pImg">
           </div>
         </div>
       </div>
