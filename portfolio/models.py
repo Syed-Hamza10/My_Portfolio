@@ -5,6 +5,26 @@ from ckeditor.fields import RichTextField
 
 # Create your models here.
 
+##### New Code Below
+class WorkExperience(models.Model):
+    CATEGORY_CHOICES = [
+        ('preply', 'Preply Tutor'),
+        ('freelance', 'Freelance Tutor'),
+        ('other', 'Other'),
+    ]
+
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='other')
+    title = models.CharField(max_length=100, blank=True, null=True)  # Optional title
+    description = models.TextField(blank=True, null=True)  # Optional description
+    details = models.JSONField(blank=True, null=True)  # Optional JSON field for additional details
+    link = models.URLField(blank=True, null=True)  # Optional URL field for links like a Preply profile
+
+    def __str__(self):
+        return f"{self.category}: {self.title or 'No Title'}"
+
+##### New Code Above
+
+
 class Skill(models.Model):
     class Meta:
         verbose_name_plural = 'Skills'

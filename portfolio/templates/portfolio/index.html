@@ -31,6 +31,8 @@ END script blocks
 Start Content
 ================================= -->
 {% block content %}
+
+
 <section>
   <div class="bannerSection">
     <div class="container">
@@ -42,7 +44,7 @@ Start Content
         </div>
         <div class="col-md">
           <div class="bannerContent">
-            <h1 class="xlTitle pb-3">Hi, I’m {{me.last_name|title}}, <br> a {{me.userprofile.title}} </br></h1>
+            <h1 class="xlTitle pb-3">Hi, I'm {{me.last_name|title}}, <br> a {{me.userprofile.title}} </br></h1>
             <p>{{me.userprofile.bio}}</p>
             <div class="bannerBtnCol">
               <div class="row">
@@ -150,6 +152,42 @@ Start Content
     </div>
   </div>
 </section>
+
+
+<section id="work-experience" class="lightBg full-screen-bg">
+  <div class="container">
+    <h2 class="xlTitle primaryColor">Work Experience</h2>
+
+    <div class="experience">
+      <!-- Preply Job -->
+      <div class="job">
+        <h3 class="lgTitle primaryDarkColor">Data Science Instructor</h3>
+        <h4 class="mdTitle">Preply</h4>
+        <p class="smTitle date">February 2024 - <b>Present</b></p>
+        <ul>
+          <li>Taught Python programming to beginners and intermediate students with customized lesson plans.</li>
+          <li>Created interactive exercises and quizzes to improve engagement and retention.</li>
+          <li>Received a Super Tutor Badge for excellence in teaching.</li>
+        </ul>
+        <a href="https://preply.com/en/tutor/4593444" class="btn smallBtn btnPrimary">My Profile</a>
+      </div>
+
+      <!-- Cedar Financial Job -->
+      <div class="job">
+        <h3 class="lgTitle primaryDarkColor">Junior Data Analyst</h3>
+        <h4 class="mdTitle">Cedar Financial</h4>
+        <p class="smTitle date">August 2022 - August 2023</p>
+        <ul>
+          <li>Analyzed large datasets to identify trends and provide actionable insights to the management.</li>
+          <li>Developed dashboards using Power BI for real-time business intelligence.</li>
+          <li>Collaborated with cross-functional teams to improve data reporting processes.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 <section>
   <div class="sectionSpace">

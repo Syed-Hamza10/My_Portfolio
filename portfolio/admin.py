@@ -7,8 +7,17 @@ from .models import (
     Portfolio,
     Blog,
     Certificate,
-    Skill
+    Skill, 
+    WorkExperience
 )
+
+from django.contrib import admin
+
+@admin.register(WorkExperience)
+class WorkExperienceAdmin(admin.ModelAdmin):
+    list_display = ('category', 'title', 'description', 'link')
+    search_fields = ('category', 'title', 'description')
+
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):

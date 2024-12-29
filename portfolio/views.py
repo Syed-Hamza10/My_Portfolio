@@ -5,7 +5,9 @@ from .models import (
 		Blog,
 		Portfolio,
 		Testimonials,
-		Certificate
+		Certificate, 
+		WorkExperience, 
+		Skill,
 	)
 
 from django.views import generic
@@ -13,22 +15,47 @@ from django.views import generic
 
 from . forms import ContactForm
 
+from .models import (
+    UserProfile,
+    Blog,
+    Portfolio,
+    Testimonials,
+    Certificate,
+    WorkExperience,
+    Skill,  # Add Skill model here
+)
 
 class Home(generic.TemplateView):
 	template_name = "portfolio/index.html"
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
-		
+
+        # Add Skill objects to the context
+		user_profile = UserProfile.objects.first()
+
+		context["me"] = user_profile.user
+
+		context["skills"] = Skill.objects.filter(userprofile=user_profile)
+        
+        # Debug print to check what skills are being passed
+		print("Skills being passed to template:", list(context["skills"].values_list('name', 'is_key_skill')))
+        
+		#skills = Skill.objects.all()  # Query all Skill objects
+
 		testimonials = Testimonials.objects.filter(is_active=True)
 		certificates = Certificate.objects.filter(is_active=True)
 		blogs = Blog.objects.filter(is_active=True)
 		portfolio = Portfolio.objects.filter(is_active=True)
-		
+		work_experiences = WorkExperience.objects.all()
+
+		#context["skills"] = skills  # Add skills to context
 		context["testimonials"] = testimonials
 		context["certificates"] = certificates
 		context["blogs"] = blogs
 		context["portfolio"] = portfolio
+		context["work_experiences"] = work_experiences
+
 		return context
 
 
